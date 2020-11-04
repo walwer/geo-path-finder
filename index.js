@@ -1,3 +1,9 @@
-const distanceCalculator = require('./model/DistanceCalculator/distanceCalculator.js');
+const pathFinder = require('./core/PathFinder/pathFinder');
+const input = require('./input/waypoints.json');
 
-const Calculator = new distanceCalculator();
+
+const finder = new pathFinder();
+
+finder.loadWaypoints(input.waypoints);
+finder.generatePath();
+
