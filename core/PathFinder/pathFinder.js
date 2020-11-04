@@ -21,6 +21,8 @@ class PathFinder {
                 let distance = this.calulator.getDistance();
                 if(distance < bestMatching) bestMatching = matching;
             }
+
+
         }
     }
 
