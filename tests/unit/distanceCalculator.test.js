@@ -1,6 +1,6 @@
 const distanceCalculator = require('../../model/DistanceCalculator/distanceCalculator');
 
-describe('distance calculator logic test', function () {
+describe('distance calculator', function () {
     it('returns valid distance when data is valid', () => {
         let calculator = new distanceCalculator();
         calculator.setStartingPoint(89,21);
