@@ -1,4 +1,4 @@
-const Calculator = require('../../model/DistanceCalculator/distanceCalculator');
+const Calculator = require('../DistanceCalculator/distanceCalculator');
 
 class PathFinder {
     constructor() {
@@ -11,8 +11,7 @@ class PathFinder {
     }
 
     findNearestWaypoint(startingPoint, path, availableItems, currentIteration) {
-            console.log(currentIteration);
-            if(availableItems.length = 0 || availableItems === []) return path;
+            if(availableItems.length === 0 || availableItems === []) return path;
 
             currentIteration++;
 
@@ -35,11 +34,12 @@ class PathFinder {
             }
 
             if(bestMatching) {
+                console.log(`Matched the step for ${startingPoint.lat} a ${availableItems[bestMatching].lat}`);
                 path.push[availableItems[bestMatching]];
                 availableItems.splice(bestMatching, 1);
             }
 
-            this.findNearestWaypoint(path[path.length-1], path, availableItems, currentIteration);
+            return this.findNearestWaypoint(path[path.length-1], path, availableItems, currentIteration);
     }
 
     generatePath() {
@@ -47,9 +47,14 @@ class PathFinder {
         let startingPointIndex = 0;
         let finalPathOrder = [];
 
-        finalPathOrder.push(tempWaypointsOrder[startingPointIndex]);
+        let startingPoint = tempWaypointsOrder[startingPointIndex];
 
-        console.log(this.findNearestWaypoint(tempWaypointsOrder[startingPointIndex], finalPathOrder, tempWaypointsOrder, 0));
+        finalPathOrder.push(tempWaypointsOrder[startingPointIndex]);
+        tempWaypointsOrder.splice(startingPointIndex, 1);
+
+        let path  = (this.findNearestWaypoint(startingPoint, finalPathOrder, tempWaypointsOrder, 0));
+
+        console.log(path);
     }
 }
 

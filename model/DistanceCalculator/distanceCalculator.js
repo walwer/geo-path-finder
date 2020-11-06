@@ -31,7 +31,9 @@ class DistanceCalculator {
         const a = Math.sin(deltaFi/2) * Math.sin(deltaFi/2) + Math.cos(fi1) * Math.cos(fi2) * Math.sin(deltaGamma/2) * Math.sin(deltaGamma/2);
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
          // in metres
-        return earthRadius * c;
+
+        const result = Math.floor(earthRadius * c);
+        return result;
     }
 }
 

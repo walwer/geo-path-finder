@@ -1,4 +1,4 @@
-const pathFinder = require('./core/PathFinder/pathFinder');
+const pathFinder = require('./model/PathFinder/pathFinder');
 const input = require('./input/waypoints.json');
 
 
