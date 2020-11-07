@@ -22,6 +22,7 @@ class DistanceCalculator {
     }
 
     checkIfDataReadyForCalculation() {
+        //TODO: Inject to ValidatorEngine
         if(!this.startingPoint.longitude || !this.startingPoint.latitude) {
             throw new Error('Starting point data is incomplete');
         }
