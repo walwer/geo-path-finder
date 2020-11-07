@@ -22,30 +22,6 @@ class DistanceCalculator {
     }
 
     checkIfDataReadyForCalculation() {
-        //TODO: Inject to ValidatorEngine
-        if(!this.startingPoint.longitude || !this.startingPoint.latitude) {
-            throw new Error('Starting point data is incomplete');
-        }
-
-        if(!this.finishPoint.longitude || !this.finishPoint.latitude) {
-            throw new Error('Finish point data is incomplete');
-        }
-
-        if(this.startingPoint.longitude > 180 || this.finishPoint.longitude > 180) {
-            throw new Error('Longitude cannot be higher than 180 degrees')
-        }
-
-        if(this.startingPoint.longitude < -180 || this.finishPoint.longitude < -180) {
-            throw new Error('Longitude cannot be lower than -180 degrees')
-        }
-
-        if(this.startingPoint.latitude > 90 || this.finishPoint.longitude > 90) {
-            throw new Error('Latitude cannot be higher than 90 degrees')
-        }
-
-        if(this.startingPoint.latitude < -90 || this.finishPoint.longitude < -90) {
-            throw new Error('Latitude cannot be lower than 90 degrees')
-        }
     }
 
     calculateDistance() {
