@@ -1,4 +1,5 @@
 const Calculator = require('../DistanceCalculator/distanceCalculator');
+const Validator = require('Validator/validationEngine');
 
 class PathFinder {
     constructor() {
