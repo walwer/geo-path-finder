@@ -16,11 +16,7 @@ describe('distance calculator', function () {
         let calculator = new distanceCalculator();
         calculator.setStartingPoint(89,21);
 
-        let execution = () => {
-            calculator.calculateDistance();
-        }
-
-        expect(execution).toThrow(Error);
+        expect(() => calculator.calculateDistance()).toThrow(Error);
     })
 
     it('throws error when data is invalid', () => {
@@ -28,10 +24,6 @@ describe('distance calculator', function () {
         calculator.setStartingPoint(120,3);
         calculator.setFinishPoint(89,21);
 
-        let execution = () => {
-            calculator.calculateDistance();
-        }
-
-        expect(execution).toThrow(Error);
+        expect(() => calculator.calculateDistance()).toThrow(Error);
     })
 });
