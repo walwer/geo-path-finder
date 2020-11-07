@@ -2,6 +2,7 @@ const IsArrayDataValidator = require('./DataValidators/IsArrayDataValidator/isAr
 const IsNotNullArrayDataValidator = require('./DataValidators/IsNotNullArrayDataValidator/isNotNullDataValidator');
 const IsDatasetFormatValidDataValidator = require('./DataValidators/IsDatasetFormatValidDataValidator/isDatasetFormatValidDataValidator');
 const IsLatitudeValidDataValidator = require('./DataValidators/IsLatitudeValidDataValidator/isLatitudeValidDataValidator');
+const IsLongitudeValidDataValidator = require('./DataValidators/IsLongitudeValidDataValidator/isLongitudeValidDataValidator');
 
 class ValidatorProvider {
     getProvidedValidators() {
@@ -10,6 +11,7 @@ class ValidatorProvider {
             new IsNotNullArrayDataValidator(),
             new IsDatasetFormatValidDataValidator(),
             new IsLatitudeValidDataValidator(),
+            new IsLongitudeValidDataValidator(),
         ]
     }
 }
