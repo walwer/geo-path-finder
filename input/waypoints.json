@@ -1,16 +1,16 @@
 {
   "waypoints": [
     {
-      "lat": 10.00,
-      "lon": 20.00
+      "latitude": 10.00,
+      "longitude": 20.00
     },
     {
-      "lat": 15.00,
-      "lon": 20.00
+      "latitude": 15.00,
+      "longitude": 20.00
     },
     {
-      "lat": 13.00,
-      "lon": 20.00
+      "latitude": 13.00,
+      "longitude": 20.00
     }
   ]
 }

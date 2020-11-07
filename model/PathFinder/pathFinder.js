@@ -26,13 +26,13 @@ class PathFinder {
 
         currentIteration++;
 
-        this.calulator.setStartingPoint(startingPoint.lat, startingPoint.lon);
+        this.calulator.setStartingPoint(startingPoint.latitude, startingPoint.longitude);
         let bestMatching = null;
 
         for (let matching in availableItems) {
             if (availableItems[matching] === path[path.length - 1]) continue;
 
-            this.calulator.setFinishPoint(availableItems[matching].lat, availableItems[matching].lon);
+            this.calulator.setFinishPoint(availableItems[matching].latitude, availableItems[matching].longitude);
             let distance = this.calulator.getDistance();
 
             if (distance === 0) {
