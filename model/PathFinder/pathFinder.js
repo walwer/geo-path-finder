@@ -45,7 +45,7 @@ class PathFinder {
         }
 
         if (bestMatching) {
-            console.log(`Matched the step for ${startingPoint.lat} a ${availableItems[bestMatching].lat}`);
+            console.log(`Matched the step for ${startingPoint.latitude} a ${availableItems[bestMatching].latitude}`);
             path.push[availableItems[bestMatching]];
             availableItems.splice(bestMatching, 1);
         }

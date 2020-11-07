@@ -21,12 +21,7 @@ class DistanceCalculator {
         return this.calculateDistance();
     }
 
-    checkIfDataReadyForCalculation() {
-    }
-
     calculateDistance() {
-        this.checkIfDataReadyForCalculation();
-
         const earthRadius = 6371e3; // metres
         const fi1 = this.startingPoint.latitude * Math.PI/180; // φ, λ in radians
         const fi2 = this.finishPoint.latitude * Math.PI/180;
