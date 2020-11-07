@@ -1,10 +1,11 @@
 const Calculator = require('../DistanceCalculator/distanceCalculator');
-const Validator = require('Validator/validationEngine');
+const Validator = require('./../PathFinder/Validator/validationEngine');
 
 class PathFinder {
     constructor() {
         this.waypoints = [];
         this.calulator = new Calculator();
+        this.validator = new Validator();
     }
 
     loadWaypoints(waypoints) {
@@ -17,19 +18,7 @@ class PathFinder {
     }
 
     validateData(data) {
-        if (!Array.isArray(data)) {
-            throw new Error('Data should be an array');
-        }
-
-        if (data.length === 0) {
-            throw new Error('Data should be an empty array');
-        }
-
-        for(let x of data) {
-            if(!x.hasOwnProperty('longitude') || !x.hasOwnProperty('latitude')) {
-                throw new Error('Dataset contains not valid data objects');
-            }
-        }
+        this.validator.validate(data);
     }
 
     findNearestWaypoint(startingPoint, path, availableItems, currentIteration) {
