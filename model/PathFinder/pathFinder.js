@@ -1,12 +1,11 @@
-const Calculator = require('../DistanceCalculator/distanceCalculator');
-const Validator = require('./../PathFinder/Validator/validationEngine');
+const PointFinder = require('./../PointFinder/pointFinder');
 
 class PathFinder {
-    constructor() {
+    constructor(calculator, validator) {
         this.waypoints = [];
-        this.calulator = new Calculator();
-        this.validator = new Validator();
+        this.validator = new validator;
         this.path = [];
+
     }
 
     loadWaypoints(waypoints) {
@@ -28,22 +27,7 @@ class PathFinder {
 
 
     generateDistanceMap() {
-        for (let point of this.waypoints) {
-            point['dependencies'] = [];
 
-            for (let target in this.waypoints) {
-                this.calulator.setStartingPoint(point.latitude, point.longitude);
-                this.calulator.setFinishPoint(this.waypoints[target].latitude, this.waypoints[target].longitude);
-                const distance = this.calulator.getDistance();
-
-                if (distance > 0) {
-                    point.dependencies.push({
-                        index: target,
-                        distance,
-                    });
-                }
-            }
-        }
     }
 
     generatePath() {

@@ -1,9 +1,11 @@
-const pathFinder = require('./model/PathFinder/pathFinder');
+const PathFinder = require('./model/PathFinder/pathFinder');
 const input = require('./input/waypoints.json');
+const Calculator = require('./model/DistanceCalculator/distanceCalculator');
+const Validator = require('./model/PathFinder/Validator/validationEngine');
 
 
-const finder = new pathFinder();
+const pathFinder = new PathFinder();
 
-finder.loadWaypoints(input.waypoints);
-finder.generatePath();
+pathFinder.loadWaypoints(input.waypoints);
+pathFinder.generatePath();
 
