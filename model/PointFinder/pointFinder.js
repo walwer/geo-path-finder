@@ -1,23 +1,27 @@
 class PointFinder {
-    constructor(points, start, calculator) {
+    constructor(points, calculator) {
         this.points = points;
-        this.start = start;
         this.calculator = calculator;
     }
 
-    findNearest() {
-        for (let point in this.points) {
-            this.calulator.setStartingPoint(point.latitude, point.longitude);
-            this.calulator.setFinishPoint(this.waypoints[target].latitude, this.waypoints[target].longitude);
-            const distance = this.calulator.getDistance();
+    findNearest(start) {
+        let candidate = {
+            distance: Infinity,
+            point: {}
+        };
 
-            if (distance > 0) {
-                point.dependencies.push({
-                    index: target,
-                    distance,
-                });
+        for (let point of this.points) {
+            this.calculator.setFinishPoint(point.latitude, point.longitude);
+            this.calculator.setStartingPoint(start.latitude, start.longitude);
+            const distance = this.calculator.getDistance();
+
+            if (distance > 0 && distance < candidate.distance)  {
+                candidate.distance = distance;
+                candidate.point = point;
             }
         }
+
+        return candidate;
     }
 }
 

@@ -1,11 +1,12 @@
 const PointFinder = require('./../PointFinder/pointFinder');
+const ValidationEngine = require('../PathFinder/Validator/validationEngine');
 
 class PathFinder {
-    constructor(calculator, validator) {
+    constructor(calculator) {
         this.waypoints = [];
-        this.validator = new validator;
+        this.validator = new ValidationEngine();
+        this.calculator = new calculator;
         this.path = [];
-
     }
 
     loadWaypoints(waypoints) {
@@ -21,17 +22,11 @@ class PathFinder {
         this.validator.validate(data);
     }
 
-    findNearestWaypoint() {
-
-    }
-
-
-    generateDistanceMap() {
-
-    }
-
     generatePath() {
+        let pointFinder = new PointFinder(this.waypoints, this.calculator);
 
+        let bestPoint = pointFinder.findNearest({longitude: 11, latitude: 20})
+        console.log(bestPoint);
     }
 }
 
