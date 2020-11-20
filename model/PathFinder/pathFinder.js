@@ -1,11 +1,12 @@
 const PointFinder = require('./../PointFinder/pointFinder');
 const ValidationEngine = require('../PathFinder/Validator/validationEngine');
+const Calculator = require('../DistanceCalculator/distanceCalculator');
 
 class PathFinder {
-    constructor(calculator) {
+    constructor() {
         this.waypoints = [];
         this.validator = new ValidationEngine();
-        this.calculator = new calculator;
+        this.calculator = new Calculator();
         this.path = [];
     }
 
