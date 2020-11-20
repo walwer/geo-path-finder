@@ -1,16 +1,18 @@
 class PointFinder {
-    constructor(points, calculator) {
-        this.points = points;
+    constructor(calculator) {
         this.calculator = calculator;
     }
 
-    findNearest(start) {
+    findNearest(start, points) {
         let candidate = {
             distance: Infinity,
-            point: {}
+            point: {},
+            index: -1,
         };
 
-        for (let point of this.points) {
+        for (let index in points) {
+            let point = points[index];
+
             this.calculator.setFinishPoint(point.latitude, point.longitude);
             this.calculator.setStartingPoint(start.latitude, start.longitude);
             const distance = this.calculator.getDistance();
@@ -18,6 +20,7 @@ class PointFinder {
             if (distance > 0 && distance < candidate.distance)  {
                 candidate.distance = distance;
                 candidate.point = point;
+                candidate.index = index;
             }
         }
 

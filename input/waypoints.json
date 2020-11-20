@@ -1,20 +1,19 @@
 {
   "waypoints": [
     {
-      "latitude": 10.00,
-      "longitude": 20.00
+      "label": "1",
+      "latitude": 50.880638,
+      "longitude": 18.426307
     },
     {
-      "latitude": 13.00,
-      "longitude": 20.00
+      "label": "3",
+      "latitude": 50.881522,
+      "longitude": 18.422529
     },
     {
-      "latitude": 15.00,
-      "longitude": 20.00
-    },
-    {
-      "latitude": 12.00,
-      "longitude": 20.00
+      "label": "2",
+      "latitude": 50.881441,
+      "longitude": 18.425037
     }
   ]
 }

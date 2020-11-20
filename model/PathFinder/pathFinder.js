@@ -23,10 +23,22 @@ class PathFinder {
     }
 
     generatePath() {
-        let pointFinder = new PointFinder(this.waypoints, this.calculator);
+        let pointFinder = new PointFinder(this.calculator);
 
-        let bestPoint = pointFinder.findNearest({longitude: 11, latitude: 20})
-        console.log(bestPoint);
+        const WAYPOINTS_LENGTH = this.waypoints.length;
+
+        let path = [];
+        path.push(this.waypoints.shift());
+
+        for (let i = 0; i < WAYPOINTS_LENGTH - 1; i++) {
+            let startingPoint = path[path.length-1];
+            let point = pointFinder.findNearest(startingPoint, this.waypoints);
+
+            this.waypoints.splice(point.index, 1);
+            path.push(point.point);
+        }
+
+        console.log(path);
     }
 }
 
